@@ -1,6 +1,6 @@
 import React from "react";
-import { StateBuy } from "../atoms/StateBuy";
-import SubTitle from "../atoms/SubTitle";
+import { StateBuy } from "../../components/atoms/StateBuy";
+import SubTitle from "../../components/atoms/SubTitle";
 
 export const DetailPay = ({ valueLeft, valueRight, caseDetail, success }) => {
   return (

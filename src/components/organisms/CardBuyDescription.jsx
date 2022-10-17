@@ -3,21 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { useGetPurcharseSingleQuery } from "../../store/api";
 import { ButtonMl } from "../atoms/ButtonMl";
 import { CarMediaImage } from "../atoms/CardMediaImage";
-import SubTitle from "../atoms/SubTitle";
-import { CardHeader } from "./CardHeader";
-import { ListItemData } from "./ListItemData";
+import { CardHeader } from "../molecules/CardHeader";
+import { ListItemData } from "../molecules/ListItemData";
 import { LoadingSpinner } from "../atoms/LoadingSpinner";
-import { Pagination, Stack, Typography } from "@mui/material";
+import { Pagination, Stack } from "@mui/material";
 import { setBuy } from "../../store/slices/buys/buysSlices";
 import { Link, useNavigate } from "react-router-dom";
 
 export const CardBuyDescription = () => {
   const [page, setPage] = useState(1);
-  const {
-    data: purcharses,
-    isLoading,
-    isFetching,
-  } = useGetPurcharseSingleQuery(page);
+  const { data: purcharses, isFetching } = useGetPurcharseSingleQuery(page);
   const handleChange = (event, value) => {
     setPage(value);
   };
@@ -43,13 +38,7 @@ export const CardBuyDescription = () => {
                   <CarMediaImage image={purcharse.imagen}></CarMediaImage>
                   <ListItemData purcharse={purcharse}></ListItemData>
                 </div>
-                <div className="text-with-link">
-                  <SubTitle
-                    value={purcharse.vendedor.nickname}
-                    classSubTitle={"text-with-link__text"}
-                  ></SubTitle>
-                </div>
-                <Link className="bf-ui-button-container" to={'/buy-detail'}>
+                <Link className="bf-ui-button-container" to={"/buy-detail"}>
                   <ButtonMl
                     value={"Ver Compras"}
                     onClick={() => setPurcharse(purcharse)}
@@ -58,10 +47,10 @@ export const CardBuyDescription = () => {
               </div>
             </div>
           ))}
+        <Stack spacing={2}>
+          <Pagination count={10} page={page} onChange={handleChange} />
+        </Stack>
       </div>
-      <Stack spacing={2}>
-        <Pagination count={10} page={page} onChange={handleChange} />
-      </Stack>
     </>
   );
 };

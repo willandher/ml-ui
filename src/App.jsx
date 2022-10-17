@@ -1,5 +1,4 @@
 
-import { Profile } from "./components/organisms/Profile";
 import { AppRouter } from "./router/AppRouter";
 import {Header} from "./components/organisms/Header"
 
