@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const transactionApi = createApi({
   reducerPath: "transactions",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:8080/api/ml/v1/bff",
+    baseUrl: "http://localhost:9016/api/ml/v1/bff",
   }),
   endpoints: (builder) => ({
     getInfoTrasaction: builder.query({
