@@ -1,6 +1,6 @@
 import { Box } from '@mui/material'
 import React from 'react'
-import { CardBuyDescription } from '../molecules/CardBuyDescription'
+import { CardBuyDescription } from '../../components/organisms/CardBuyDescription'
 
 export const CardBuy = () => {
   return (

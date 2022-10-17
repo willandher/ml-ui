@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const HeaderCardProfile = ({image,level}) => {
+export const HeaderCardProfile = ({image,level, name}) => {
   return (
     <div className="andes-card andes-card--flat hub-card hub-card__header hub-card__header--desktop">
       <ul className="andes-list">
@@ -13,7 +13,7 @@ export const HeaderCardProfile = ({image,level}) => {
             </div>
             <div className="andes-list__item-text">
              
-                <span className="title-header">Anais Pacheco</span>
+                <span className="title-header">{name}</span>
               <span className="andes-list__item-secondary">
                 <a className="level-btn">
                   <span>Nivel {level} - Mercado&nbsp;Puntos</span>

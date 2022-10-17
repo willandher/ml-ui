@@ -1,8 +1,8 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { CardBuy } from '../components/organisms/CardBuy'
 import { DetailBuy } from '../components/organisms/DetailBuy'
-import { Profile } from '../components/organisms/Profile'
+import { Profile } from '../pages/profile/Profile'
+import { CardBuy } from '../pages/purcharse/CardBuy'
 
 export const AppRouter = () => {
   return (
