@@ -11,12 +11,18 @@ import { setBuy } from "../../store/slices/buys/buysSlices";
 import { Link, useNavigate } from "react-router-dom";
 
 export const CardBuyDescription = () => {
-  const [page, setPage] = useState(1);
-  const { data: purcharses, isFetching } = useGetPurcharseSingleQuery(page);
+  const [range, setPage] = useState({
+    page: 1,
+    offset: 0
+  });
+  const { data: purcharses, isFetching } = useGetPurcharseSingleQuery(range);
   const handleChange = (event, value) => {
-    setPage(value);
+
+    setPage({
+      page: value,
+      offset: (5 * value) - 5
+    });
   };
-  const { buy } = useSelector((state) => state.buys);
   const dispatch = useDispatch();
 
   const setPurcharse = (purcharse) => {
@@ -47,8 +53,8 @@ export const CardBuyDescription = () => {
               </div>
             </div>
           ))}
-        <Stack spacing={2}>
-          <Pagination count={10} page={page} onChange={handleChange} />
+        <Stack className="paginator-align">
+          <Pagination count={Math.ceil(purcharses?.total/purcharses?.limit)} page={range.page} onChange={handleChange} />
         </Stack>
       </div>
     </>
