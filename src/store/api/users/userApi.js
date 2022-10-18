@@ -25,8 +25,7 @@ export const userApi = createApi({
           localStorage.setItem("user", JSON.stringify(userResult))
           user = userResult;
         }
-        const offset = parseInt(_arg) - 1;
-        const result = await fetchWithBQ(`./api/ml/v1/bff/users/${user.id}/purcharses/?limit=5&offset=${offset}`)
+        const result = await fetchWithBQ(`./api/ml/v1/bff/users/${user.id}/purcharses/?limit=5&offset=${_arg.offset}`)
         return result.data ? { data: result.data } : { error: result.error }
       }
     })
